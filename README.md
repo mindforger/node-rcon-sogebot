@@ -12,7 +12,7 @@ It was originally created to connect to Minecraft's RCON server.
 
 npm:
 
-    $ npm install rcon
+    $ npm i @h4nsolo/node-rcon-sogebot
 
 ## Usage
 
