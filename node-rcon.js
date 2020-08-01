@@ -69,6 +69,7 @@ Rcon.prototype.send = function(data, cmd, id) {
     sendBuf.write(str, 4)
   }
   this._sendSocket(sendBuf);
+  return id;
 };
 
 Rcon.prototype._sendSocket = function(buf) {
@@ -158,7 +159,7 @@ Rcon.prototype._tcpSocketOnData = function(data) {
             str = str.substring(0, str.length - 1);
           }
 
-          this.emit('response', str);
+          this.emit('response', id, type, str);
         }
       } else if (id == -1) {
         this.emit('error', new Error("Authentication failed"));
